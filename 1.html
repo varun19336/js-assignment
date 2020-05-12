@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Print DOB</title>
+    <script>
+        var wDays = ['first ', 'second ', 'third ', 'fourth ', 'fifth ', 'sixth ', '	seventh ', 'eighth ', 'ninth ', 'tenth ', 'eleventh ', 'twelfth ', 'thirteenth ', 'fourteenth ', 'fifteenth ', 'sixteenth ', 'seventeenth ', 'eighteenth ', 'nineteenth ', 'twentieth ', 'twenty-first ', 'twenty-second ', 'twenty-third ', 'twenty-fourth ', 'twenty-fifth ', 'twenty-sixth ', 'twenty-seventh ', 'twenty-eighth ', 'twenty-ninth ', 'thirtieth ', 'thirty-first '];
+        var wMonths = ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October ', 'November ', 'December '];
+        var wNumbers = ['one ', 'two ', 'three ', 'four ', 'five ', 'six ', 'seven ', 'eight ', 'nine ', 'ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+        var wEnd = ['ten ', 'eleven ', 'twelve ', 'thirteen ', 'fourteen ', 'fifteen ', 'sixteen ', 'seventeen ', 'eighteen ', 'nineteen '];
+        var wTens = ['twenty ', 'thirty ', 'forty ', 'fifty ', 'sixty ', 'seventy ', 'eighty ', 'ninety '];
+        var name = window.prompt("Enter your name:");
+        var dob = window.prompt("Enter your DOB:");
+        var date = dob.substring(0, 2);
+        var month = dob.substring(3, 5);
+        var one = dob.substring(6, 7);
+        var two = dob.substring(7, 8);
+        var three = dob.substring(8, 9);
+        var four = dob.substring(9, 10);
+    </script>
+</head>
+
+<body style="text-align: center;font-size: 150%;">
+    <script>
+        document.write(name, ",<br>");
+        document.write(wDays[date - 1]);
+        document.write(wMonths[month - 1]);
+        if (one != 0) {
+            document.write(wNumbers[one - 1]);
+            document.write("thousand ");
+        }
+        if (two != 0) {
+            document.write(wNumbers[two - 1]);
+            document.write("hundred ");
+        }
+        if (three != 0 && three != 1) {
+            document.write(wTens[three - 2]);
+        }
+        if (three == 1) {
+            document.write(wEnd[four])
+        } else if (four != 0) {
+            document.write(wNumbers[four - 1]);
+        }
+    </script>
+
+</body>
+
+</html>

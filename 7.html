@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration </title>
+    <script>
+        function allLetter(inputtxt) {
+            var letters = /^[A-Za-z]+$/;
+            return (inputtxt.match(letters))
+        }
+
+        function allnumber(inputtxt) {
+            var letters = /^[0-9]+$/;
+            return (inputtxt.match(letters))
+        }
+
+        function func() {
+            var count = 0;
+            //console.log(allLetter(document.getElementById("Name").value));
+            if (allLetter(document.getElementById("Name").value)) {
+                count++;
+                document.getElementById("nam").style.display = "none";
+            } else {
+                document.getElementById("nam").style.display = "inline";
+            }
+            if (allnumber(document.getElementById("phone").value) && document.getElementById("phone").value.length == 10) {
+                count++;
+                document.getElementById("ph").style.display = "none";
+            } else {
+                document.getElementById("ph").style.display = "inline";
+            }
+            if (allnumber(document.getElementById("pincode").value) && document.getElementById("pincode").value.length == 6) {
+                count++;
+                document.getElementById("pin").style.display = "none";
+            } else {
+                document.getElementById("pin").style.display = "inline";
+            }
+            if (count === 3) {
+                document.getElementById("submit").disabled = false;
+            }
+        }
+
+        function func2() {
+            alert("Form Submitted Successfully!");
+        }
+
+        function run(val) {
+            if (val == 1) {
+                alert("City=" + document.getElementById("city").value);
+            }
+            if (val == 2) {
+                alert("City=" + document.getElementsByClassName("city1")[0].value);
+            }
+            if (val == 3) {
+                alert("City=" + document.getElementsByTagName("input")[3].value);
+            }
+            if (val == 4) {
+                alert("City=" + document.querySelector("#city").value);
+            }
+            if (val == 5) {
+                alert("City=" + document.querySelector(".city1").value);
+            }
+            if (val == 6) {
+                alert("City=" + document.querySelectorAll("input")[3].value);
+            }
+        }
+
+        function pinfunc() {
+            var city = document.getElementById("city").value;
+            if (city == "guntur" || city == "Guntur") {
+                document.getElementById("pincode").value = 522007;
+            }
+            if (city == "amritapuri" || city == "Amritapuri") {
+                document.getElementById("pincode").value = 690546;
+            }
+            if (city == "vijayawada" || city == "Vijayawada") {
+                document.getElementById("pincode").value = 502355;
+            }
+
+            if (city == "vizag" || city == "Vizag") {
+                document.getElementById("pincode").value = 530026;
+            }
+            if (city == "hyderabad" || city == "Hyderabad") {
+                document.getElementById("pincode").value = 500054;
+            }
+        }
+
+        function focusOnMyInputBox() {
+            document.getElementById("name").focus();
+        }
+    </script>
+    <style>
+        ul {
+            display: table;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body onLoad="focusOnMyInputBox();">
+    <div style="text-align: center;">
+        <h1 id="question">Question-7</h1>
+        <form action="#">
+            <h2>Student Registration Form</h2>
+            <table style="margin: auto;">
+                <tr>
+                    <td style="text-align: right;"><label for="Name">Name of the Student:</label></td>
+                    <td style="text-align: left;"><input type="text" name="Name" id="Name" required autofocus><span style="display: none;" id="nam">*only alphabets</span><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;"><label for="phone">Mobile Number:</label></td>
+                    <td style="text-align: left;"><input type="number" name="phone" id="phone" required><span style="display: none;" id="ph">*enter 10digit number</span></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;"><label for="address">Address:</label></td>
+                    <td style="text-align: left;"><input type="text" name="address" id="address" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;"><label for="city">City:</label></td>
+                    <td style="text-align: left;"><input type="text" name="city" id="city" class="city1" oninput="pinfunc()" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;"><label for="State">State:</label></td>
+                    <td style="text-align: left;"><input type="text" name="state" id="state" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;"><label for="pin">Pincode:</label></td>
+                    <td style="text-align: left;"><input type="number" name="pincode" id="pincode" required><span style="display: none;" id="pin">*enter 6digit pincode</span><br></td>
+                </tr>
+            </table>
+            <button id="check" type="button" onclick="func()">Check</button><br><br>
+            <button type="submit" id="submit" disabled onclick="func2()">Submit</button>
+            <button type="reset">Reset</button><br>
+        </form>
+        <h1>DOM Tree</h1>
+        <img src="dom.jpeg" alt="DOM of q6" style="height: 300px;width: 600px;border: 3px solid black;">
+        <h3>Different ways Accessing City Field:</h3>
+        <ul>
+            <a href="javascript:run(1);">
+                <li>document.getElementById("city").value</li>
+            </a>
+            <a href="javascript:run(2);">
+                <li>document.getElementsByClassName("city1")[0].value</li>
+            </a>
+            <a href="javascript:run(3);">
+                <li>document.getElementsByTagName("input")[3].value</li>
+            </a>
+            <a href="javascript:run(4);">
+                <li>document.querySelector("#city").value</li>
+            </a>
+            <a href="javascript:run(5);">
+                <li>document.querySelector(".city1").value</li>
+            </a>
+            <a href="javascript:run(6);">
+                <li>document.querySelectorAll("input")[3].value</li>
+            </a>
+        </ul>
+        <h3>Cities and Respective pincodes</h3>
+        <ul>
+            <li>Guntur : 522007</li>
+            <li>Amritapuri : 690546</li>
+            <li>Vijaywada : 502355</li>
+            <li>Vizag : 600029</li>
+            <li>Hyderabad : 500054</li>
+        </ul>
+    </div>
+</body>
+
+</html>

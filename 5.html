@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Append Element</title>
+</head>
+
+<body style="font-size: 200%;">
+    <p>
+        <ul id='ul'>
+            <li>Coffee</li>
+            <li>Tea</li>
+        </ul>
+    </p>
+    <button onclick="Add()">Click to add</button>
+    <script>
+        function Add() {
+            var element = window.prompt("Element :");
+            document.getElementById("ul").innerHTML = document.getElementById("ul").innerHTML + '<li>' + element + '</li>';
+        }
+    </script>
+</body>
+
+</html>

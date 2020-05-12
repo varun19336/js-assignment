@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image slider</title>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h2>Image Slider</h2>
+        <script>
+            var i = 0;
+            var img = [];
+            var time = 2000;
+            img[0] = 'https://images6.alphacoders.com/902/thumb-1920-902379.jpg';
+            img[1] = 'https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2018/02/Best-HD-Wallpapers-From-the-Marvel-Universe-1_acdb3e4bb37d0e3bcc26c97591d3dd6b.jpg?resize=696%2C392&ssl=1';
+            img[2] = 'https://lh3.googleusercontent.com/proxy/dCkZl-1NFwjv2_KR6YpRPExnqjEKKptNk0DOi-oP0-9nW4pOJ8J_RY8s1cmiP20DCFlqzqSzRWtRKNMem_u-xs8ttkL4Yo32HtnOB8MhrS6YXuLtaBzyJY8KSdhaWnu5FSDcWrBTIn3XcBVjihL8zw';
+            img[3] = 'https://images2.alphacoders.com/528/thumb-1920-528149.jpg';
+
+            function changeimg() {
+                document.slide.src = img[i];
+                if (i < 3) {
+                    i++;
+                } else {
+                    i = 0;
+                }
+                setTimeout(changeimg, time);
+            }
+            window.onload = changeimg;
+        </script>
+        <img name='slide' style="border-radius: 20px; border:1px black;" width='700' height='400'>
+    </div>
+</body>
+
+</html>

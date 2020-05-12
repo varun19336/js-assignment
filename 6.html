@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration </title>
+    <script>
+        function allLetter(inputtxt) {
+            var letters = /^[A-Za-z]+$/;
+            return (inputtxt.match(letters))
+        }
+
+        function allnumber(inputtxt) {
+            var letters = /^[0-9]+$/;
+            return (inputtxt.match(letters))
+        }
+
+        function func() {
+            var count = 0;
+            //console.log(allLetter(document.getElementById("Name").value));
+            if (allLetter(document.getElementById("Name").value)) {
+                count++;
+                document.getElementById("nam").style.display = "none";
+            } else {
+                document.getElementById("nam").style.display = "inline";
+            }
+            if (allnumber(document.getElementById("phone").value) && document.getElementById("phone").value.length == 10) {
+                count++;
+                document.getElementById("ph").style.display = "none";
+            } else {
+                document.getElementById("ph").style.display = "inline";
+            }
+            if (allnumber(document.getElementById("pincode").value) && document.getElementById("pincode").value.length == 6) {
+                count++;
+                document.getElementById("pin").style.display = "none";
+            } else {
+                document.getElementById("pin").style.display = "inline";
+            }
+            if (count === 3) {
+                document.getElementById("submit").disabled = false;
+            }
+        }
+
+        function func2() {
+            alert("Form Submitted Successfully!");
+        }
+    </script>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <form action="#">
+            <h2>Student Registration Form</h2>
+            <table style="margin: auto;">
+                <tr>
+                    <td style="text-align: left;"><label for="Name">Name of the Student:</label></td>
+                    <td style="text-align: left;"><input type="text" name="Name" id="Name" required><span style="display: none;" id="nam">*only alphabets</span><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><label for="phone">Mobile Number:</label></td>
+                    <td style="text-align: left;"><input type="number" name="phone" id="phone" required><span style="display: none;" id="ph">*enter 10digit number</span></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><label for="address">Address:</label></td>
+                    <td style="text-align: left;"><input type="text" name="address" id="address" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><label for="city">City:</label></td>
+                    <td style="text-align: left;"><input type="text" name="city" id="city" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><label for="State">State:</label></td>
+                    <td style="text-align: left;"><input type="text" name="state" id="state" required><br></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><label for="pin">Pincode:</label></td>
+                    <td style="text-align: left;"><input type="number" name="pincode" id="pincode" required><span style="display: none;" id="pin">*enter 6digit pincode</span><br></td>
+                </tr>
+            </table>
+            <button id="check" type="button" onclick="func()">Check</button><br><br>
+            <button type="submit" id="submit" disabled onclick="func2()">Submit</button>
+            <button type="reset">Reset</button><br>
+        </form>
+    </div>
+</body>
+
+</html>

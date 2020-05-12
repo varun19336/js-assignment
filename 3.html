@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit</title>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        table {
+            border: 1px solid black;
+            width: 50%;
+            height: 50%;
+            margin-left: inherit;
+            margin-right: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Sl.no.</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Edit</th>
+        </tr>
+        <tr id=row1>
+            <td class="SNo" id="Sno1">1.</td>
+            <td class="name" id="name1"></td>
+            <td class="DOB" id="dob1"></td>
+            <td class="EDDE"><button class="edit1" value="1" onclick="edit(this.value)">Edit</button>
+                <button class="delete1" value="1" onclick="del(this.value)">Delete</button>
+            </td>
+        </tr>
+        <tr id=row2>
+            <td class="SNo" id="Sno2">2.</td>
+            <td class="name" id="name2"></td>
+            <td class="DOB" id="dob2"></td>
+            <td class="EDDE"><button class="edit2" value="2" onclick="edit(this.value)">Edit</button>
+                <button class="delete2" value="2" onclick="del(this.value)">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var name1 = prompt("Enter person 1 name :");
+        var dob1 = prompt("Enter person 1 DOB :");
+        var name2 = prompt("Enter person 2 name :");
+        var dob2 = prompt("Enter person 2 DOB :");
+        document.getElementById('name1').innerText = name1;
+        document.getElementById("dob1").innerHTML = dob1;
+        document.getElementById("name2").innerHTML = name2;
+        document.getElementById("dob2").innerHTML = dob2;
+
+        function edit(sno) {
+            var name = prompt("Enter New Name");
+            var DOB = prompt("Enter New DOB (DD / MM / YYYY)");
+            nameid = "name" + sno;
+            dobid = "dob" + sno;
+            document.getElementById(nameid).innerHTML = name;
+            document.getElementById(dobid).innerHTML = DOB;
+        }
+
+        function del(sno) {
+            var rowid = "row" + sno;
+            document.getElementById(rowid).remove();
+        }
+    </script>
+</body>
+
+</html>
